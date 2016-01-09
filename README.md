@@ -1,6 +1,6 @@
-# Prometheus Marathon exporter
+# Prometheus Marathon Exporter
 
-Proxy server converting marathon metrics to prometheus.
+Proxy server converting marathon metrics to prometheus metrics.
 
 ## Using Docker
 
