@@ -47,7 +47,7 @@ class TestMarathonCollector(unittest.TestCase):
                 }
               },
               "timers": {
-                "mesosphere.marathon.api.v2.AppTasksResource.deleteMany": {
+                "mesosphere.marathon.api.v2.AppTasksResource$$EnhancerByGuice$$bd9fb6d1.indexJson": {
                   "count": 1870979,
                   "max": 1732,
                   "mean": 1199.741604950901,
@@ -92,22 +92,22 @@ marathon_mesosphere_marathon_state_apprepository_read_request_errors_rate{window
 marathon_mesosphere_marathon_state_apprepository_read_request_errors_rate{window="5m"} 3.0
 marathon_mesosphere_marathon_state_apprepository_read_request_errors_rate{window="15m"} 15.0
 marathon_mesosphere_marathon_state_apprepository_read_request_errors_rate{window="mean"} 7.0
-# HELP marathon_mesosphere_marathon_api_v2_apptasksresource_deletemany_rate from mesosphere.marathon.api.v2.AppTasksResource.deleteMany
-# TYPE marathon_mesosphere_marathon_api_v2_apptasksresource_deletemany_rate gauge
-marathon_mesosphere_marathon_api_v2_apptasksresource_deletemany_rate{window="1m"} 7.0
-marathon_mesosphere_marathon_api_v2_apptasksresource_deletemany_rate{window="5m"} 3.0
-marathon_mesosphere_marathon_api_v2_apptasksresource_deletemany_rate{window="15m"} 15.0
-marathon_mesosphere_marathon_api_v2_apptasksresource_deletemany_rate{window="mean"} 7.0
-# HELP marathon_mesosphere_marathon_api_v2_apptasksresource_deletemany from mesosphere.marathon.api.v2.AppTasksResource.deleteMany
-# TYPE marathon_mesosphere_marathon_api_v2_apptasksresource_deletemany summary
-marathon_mesosphere_marathon_api_v2_apptasksresource_deletemany_count 1870979.0
-marathon_mesosphere_marathon_api_v2_apptasksresource_deletemany_sum 2244691348.289432
-marathon_mesosphere_marathon_api_v2_apptasksresource_deletemany{quantile="0.98"} 1558.0
-marathon_mesosphere_marathon_api_v2_apptasksresource_deletemany{quantile="0.75"} 1516.0
-marathon_mesosphere_marathon_api_v2_apptasksresource_deletemany{quantile="0.99"} 1558.0
-marathon_mesosphere_marathon_api_v2_apptasksresource_deletemany{quantile="0.95"} 1557.0
-marathon_mesosphere_marathon_api_v2_apptasksresource_deletemany{quantile="0.999"} 1732.0
-marathon_mesosphere_marathon_api_v2_apptasksresource_deletemany{quantile="0.5"} 1231.0
+# HELP marathon_mesosphere_marathon_api_v2_apptasksresource__enhancerbyguice__bd9fb6d1_indexjson_rate from mesosphere.marathon.api.v2.AppTasksResource$$EnhancerByGuice$$bd9fb6d1.indexJson
+# TYPE marathon_mesosphere_marathon_api_v2_apptasksresource__enhancerbyguice__bd9fb6d1_indexjson_rate gauge
+marathon_mesosphere_marathon_api_v2_apptasksresource__enhancerbyguice__bd9fb6d1_indexjson_rate{window="1m"} 7.0
+marathon_mesosphere_marathon_api_v2_apptasksresource__enhancerbyguice__bd9fb6d1_indexjson_rate{window="5m"} 3.0
+marathon_mesosphere_marathon_api_v2_apptasksresource__enhancerbyguice__bd9fb6d1_indexjson_rate{window="15m"} 15.0
+marathon_mesosphere_marathon_api_v2_apptasksresource__enhancerbyguice__bd9fb6d1_indexjson_rate{window="mean"} 7.0
+# HELP marathon_mesosphere_marathon_api_v2_apptasksresource__enhancerbyguice__bd9fb6d1_indexjson from mesosphere.marathon.api.v2.AppTasksResource$$EnhancerByGuice$$bd9fb6d1.indexJson
+# TYPE marathon_mesosphere_marathon_api_v2_apptasksresource__enhancerbyguice__bd9fb6d1_indexjson summary
+marathon_mesosphere_marathon_api_v2_apptasksresource__enhancerbyguice__bd9fb6d1_indexjson_count 1870979.0
+marathon_mesosphere_marathon_api_v2_apptasksresource__enhancerbyguice__bd9fb6d1_indexjson_sum 2244691348.289432
+marathon_mesosphere_marathon_api_v2_apptasksresource__enhancerbyguice__bd9fb6d1_indexjson{quantile="0.98"} 1558.0
+marathon_mesosphere_marathon_api_v2_apptasksresource__enhancerbyguice__bd9fb6d1_indexjson{quantile="0.75"} 1516.0
+marathon_mesosphere_marathon_api_v2_apptasksresource__enhancerbyguice__bd9fb6d1_indexjson{quantile="0.99"} 1558.0
+marathon_mesosphere_marathon_api_v2_apptasksresource__enhancerbyguice__bd9fb6d1_indexjson{quantile="0.95"} 1557.0
+marathon_mesosphere_marathon_api_v2_apptasksresource__enhancerbyguice__bd9fb6d1_indexjson{quantile="0.999"} 1732.0
+marathon_mesosphere_marathon_api_v2_apptasksresource__enhancerbyguice__bd9fb6d1_indexjson{quantile="0.5"} 1231.0
 # HELP marathon_org_eclipse_jetty_servlet_servletcontexthandler_active_dispatches from org.eclipse.jetty.servlet.ServletContextHandler.active-dispatches
 # TYPE marathon_org_eclipse_jetty_servlet_servletcontexthandler_active_dispatches counter
 marathon_org_eclipse_jetty_servlet_servletcontexthandler_active_dispatches 1.0
