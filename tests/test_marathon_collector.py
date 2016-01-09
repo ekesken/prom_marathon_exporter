@@ -73,9 +73,9 @@ class TestMarathonCollector(unittest.TestCase):
     def test_collect(self):
         # used generate_latest method for easy assert
         prom_metrics_text = generate_latest(self.marathon_collector)
-        expected_text = '''# HELP marathon_org_eclipse_jetty_servlet_servletcontexthandler from org.eclipse.jetty.servlet.ServletContextHandler.percent-4xx-15m
-# TYPE marathon_org_eclipse_jetty_servlet_servletcontexthandler gauge
-marathon_org_eclipse_jetty_servlet_servletcontexthandler{status_code="4xx",window="15m"} 0.01139209265037441
+        expected_text = '''# HELP marathon_org_eclipse_jetty_servlet_servletcontexthandler_percent_4xx_15m from org.eclipse.jetty.servlet.ServletContextHandler.percent-4xx-15m
+# TYPE marathon_org_eclipse_jetty_servlet_servletcontexthandler_percent_4xx_15m gauge
+marathon_org_eclipse_jetty_servlet_servletcontexthandler_percent_4xx_15m 0.01139209265037441
 # HELP marathon_service_mesosphere_marathon_state_marathonstore_appdefinition_read_data_size from service.mesosphere.marathon.state.MarathonStore.AppDefinition.read-data-size
 # TYPE marathon_service_mesosphere_marathon_state_marathonstore_appdefinition_read_data_size summary
 marathon_service_mesosphere_marathon_state_marathonstore_appdefinition_read_data_size_count 1870979.0

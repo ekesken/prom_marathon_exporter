@@ -1,4 +1,3 @@
-import re
 import logging
 import requests
 from prometheus_client.core import GaugeMetricFamily,\
@@ -6,10 +5,6 @@ from prometheus_client.core import GaugeMetricFamily,\
 
 
 LOGGER = logging.getLogger(__name__)
-PERCENT_PATTERN = re.compile(
-        r'(?P<key>.*)_percent_'
-        r'(?P<status_code>[^_]*)'
-        r'_(?P<window>.*)$')
 
 
 class SummaryWithQuantileMetricFamily(SummaryMetricFamily):
@@ -65,24 +60,11 @@ class MarathonCollector(object):
     @classmethod
     def convert_gauge_metric(cls, marathon_key, marathon_metric):
         metric_key = cls.convert_metric_key(marathon_key)
-        if 'percent' in metric_key:
-            m = re.match(PERCENT_PATTERN, metric_key)
-            key = m.group('key')
-            val = marathon_metric['value']
-            status_code = m.group('status_code')
-            window = m.group('window')
-            g = GaugeMetricFamily(
-                name=key,
-                documentation='from %s' % marathon_key,
-                labels=('status_code', 'window'))
-            g.add_metric((status_code, window), val)
-            return g
-        else:
-            return GaugeMetricFamily(
-                name=metric_key,
-                documentation='from %s' % marathon_key,
-                value=marathon_metric['value']
-            )
+        return GaugeMetricFamily(
+            name=metric_key,
+            documentation='from %s' % marathon_key,
+            value=marathon_metric['value']
+        )
 
     @classmethod
     def convert_counter_metric(cls, marathon_key, marathon_metric):
@@ -129,6 +111,7 @@ class MarathonCollector(object):
 
     @classmethod
     def convert_timer_metric(cls, marathon_key, marathon_metric):
-        meter_part = cls.convert_meter_metric(marathon_key, marathon_metric)
+        meter_part = cls.convert_meter_metric(
+                marathon_key, marathon_metric)
         histogram_part = cls.convert_histogram_metric(marathon_key, marathon_metric)
         return meter_part, histogram_part
