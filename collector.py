@@ -32,6 +32,7 @@ class MarathonCollector(object):
                     yield self.convert_histogram_metric(marathon_key, marathon_metric)
                 elif metric_type == 'meters':
                     yield self.convert_meter_metric(marathon_key, marathon_metric)
+                    yield self.convert_counter_metric(marathon_key+'_count', marathon_metric)
                 elif metric_type == 'timers':
                     for converted_metric in self.convert_timer_metric(
                             marathon_key, marathon_metric):
