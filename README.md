@@ -9,7 +9,6 @@ You can deploy this exporter using the [ekesken/prom-marathon-exporter](https://
 For example:
 
 ```bash
-docker run -d -p 9100:9100 --net="host" prom/node-exporter
 docker run -d -e MARATHON_METRICS_URL=http://leader.mesos:8080/metrics -p 9099:9099 ekesken/prom-marathon-exporter
 # try it
 # curl http://localhost:9099/metrics
@@ -34,9 +33,19 @@ curl -XPOST -H 'Content-Type: application/json;' leader.mesos:8080/v2/apps -d '{
       "image": "ekesken/prom-marathon-exporter",
       "network": "BRIDGE",
       "privileged": true,
-      "portMappings": [{"containerPort": 9099, "hostPort": 9099}]
+      "portMappings": [{"containerPort": 9099}]
     }
   },
   "healthChecks": [{"protocol": "HTTP", "path": "/metrics"}]
 }'
-`
+```
+
+## Scrape config on prometheus
+
+A sample prometheus target yaml example if you already have have mesos-dns:
+
+```
+  - job_name: 'marathon'
+    dns_sd_configs:
+      - names: ['_marathon-exporter-prom._tcp.marathon.mesos']
+```
