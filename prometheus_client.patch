@@ -1,0 +1,12 @@
+--- core.py     2016-08-01 15:28:17.820991887 +0000
++++ core.py.patched     2016-08-01 15:28:08.057000605 +0000
+@@ -555,6 +555,8 @@
+         return '+Inf'
+     elif d == _MINUS_INF:
+         return '-Inf'
++    elif isinstance(d, list):
++        return 'NaN'
+     elif math.isnan(d):
+         return 'NaN'
+     else:
+

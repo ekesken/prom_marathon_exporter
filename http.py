@@ -8,7 +8,7 @@ from prometheus_client.exposition import generate_latest
 
 MARATHON_METRICS_URL = os.environ.get(
         'MARATHON_METRICS_URL',
-        'http://leader.mesos:8080/metrics')
+        'http://marathon.mesos:8080/metrics')
 REGISTRY.unregister(PROCESS_COLLECTOR)
 REGISTRY.register(MarathonCollector(MARATHON_METRICS_URL))
 app = Flask(__name__)

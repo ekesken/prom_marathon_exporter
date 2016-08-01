@@ -13,6 +13,7 @@ RUN apt-get update && \
     python-dev \
     python-setuptools \
     python-pip \
+    patch \
     supervisor && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
@@ -29,6 +30,9 @@ RUN ln -s /etc/nginx/sites-available/nginx_site.conf /etc/nginx/sites-enabled/ng
 COPY supervisor-app.conf /etc/supervisor/conf.d/supervisor-app.conf
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod a+x /entrypoint.sh
+
+# workaround patch for unexpected "jvm.threads.deadlocks":{"value":[]} due to #3
+RUN patch /usr/local/lib/python2.7/dist-packages/prometheus_client/core.py < /prom_marathon_exporter/prometheus_client.patch
 
 EXPOSE 9099
 CMD ["/entrypoint.sh"]
