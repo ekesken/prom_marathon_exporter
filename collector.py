@@ -1,5 +1,6 @@
 import logging
 import requests
+import math
 from prometheus_client.core import GaugeMetricFamily,\
     CounterMetricFamily, SummaryMetricFamily
 
@@ -24,6 +25,9 @@ class MarathonCollector(object):
             if metric_type == 'version':
                 continue
             for marathon_key, marathon_metric in marathon_metrics.iteritems():
+                if 'value' in marathon_metric and isinstance(marathon_metric['value'], list):
+                    # workaround for jvm.threads.deadlocks whose value comes as []
+                    continue
                 if metric_type == 'gauges':
                     yield self.convert_gauge_metric(marathon_key, marathon_metric)
                 elif metric_type == 'counters':
