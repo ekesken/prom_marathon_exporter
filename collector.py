@@ -55,7 +55,12 @@ class MarathonCollector(object):
     @staticmethod
     def convert_metric_key(marathon_key):
         key = 'marathon_%s' % marathon_key
-        key = key.lower().replace('.', '_').replace('-', '_').replace('$', '_')
+        key = key.lower()\
+            .replace('.', '_')\
+            .replace('-', '_')\
+            .replace('(', '_')\
+            .replace(')', '_')\
+            .replace('$', '_')
         return key
 
     @classmethod
