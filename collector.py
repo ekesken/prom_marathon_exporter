@@ -64,6 +64,8 @@ class MarathonCollector(object):
             .replace('-', '_')\
             .replace('(', '_')\
             .replace(')', '_')\
+            .replace('{', '_')\
+            .replace('}', '_')\
             .replace('$', '_')
         return key
 
